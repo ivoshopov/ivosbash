@@ -1,6 +1,7 @@
 
 bin_files+=color.sh
 bin_files+=git-prompt.sh
+bin_files+=proxy.sh
 bashrc=$(HOME)/.original_bashrc
 
 all: $(bashrc) $(bin_files)
