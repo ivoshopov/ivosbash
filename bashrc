@@ -17,3 +17,7 @@ fi
 if [ -f ~/local/.bashrc ]; then
     . ~/local/.bashrc
 fi
+
+# Save history at every command prompt in order to prevent loose of history 
+# at abnormal termination.
+export PROMPT_COMMAND='history -a'
