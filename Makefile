@@ -3,6 +3,8 @@ BINDIR=$(HOME)/.local/bin
 bin_files+=color.sh
 bin_files+=git-prompt.sh
 bin_files+=proxy.sh
+bin_files+=cpuspeed
+bin_files+=color-table
 bashrc=$(HOME)/.original_bashrc
 
 all:
