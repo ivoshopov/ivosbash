@@ -1,10 +1,10 @@
 
-# enable color prompt with git barach display
-if [ -f ~/bin/color.sh ]; then
-    source ~/bin/color.sh
-    if [ -f ~/bin/git-prompt.sh ]; then
-        source ~/bin/git-prompt.sh
-        PS1='$(printf "\[$bldwht\]")$(whoami)@$(hostname):$(printf "\[$bldblu\]")$(pwd)$(printf "\[$bldgrn\]")$(__git_ps1)$(printf "\[$bldwht\]") \$$(printf "\[$txtwht\]") '
+# enable color prompt with git baranch display
+if [ -f ~/.local/bin/color.sh ]; then
+    source ~/.local/bin/color.sh
+    if [ -f ~/.local/bin/git-prompt.sh ]; then
+        source ~/.local/bin/git-prompt.sh
+        PS1='$(printf "\[$bldwht\]")\u@\h:$(printf "\[$bldblu\]")\w$(printf "\[$bldgrn\]")$(__git_ps1)$(printf "\[$bldwht\]") \$$(printf "\[$txtwht\]") '
     fi
 fi
 
@@ -14,8 +14,8 @@ if [ -x /usr/bin/trash-put ]; then
 fi
 
 # execute local .bashrc
-if [ -f ~/local/.bashrc ]; then
-    . ~/local/.bashrc
+if [ -f ~/.local/.bashrc ]; then
+    . ~/.local/.bashrc
 fi
 
 # Save history at every command prompt in order to prevent loose of history 

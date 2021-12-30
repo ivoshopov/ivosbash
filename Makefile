@@ -1,10 +1,14 @@
 
+BINDIR=$(HOME)/.local/bin
 bin_files+=color.sh
 bin_files+=git-prompt.sh
 bin_files+=proxy.sh
 bashrc=$(HOME)/.original_bashrc
 
-all: $(bashrc) $(bin_files)
+all:
+	echo "Please run \"make install\" to install the scripts"
+
+install: $(bashrc) $(bin_files)
 
 $(bashrc):
 	if [ -f $(HOME)/.bashrc ]; then \
@@ -17,13 +21,17 @@ $(bashrc):
 
 
 .PHONY: $(bin_files)
-$(bin_files): $(HOME)/bin
-	cp bin/$@ $(HOME)/bin/
+$(bin_files): | $(BINDIR)
+	cp bin/$@ $(BINDIR)/
 
-$(HOME)/bin:
-	mkdir $(HOME)/bin
+$(BINDIR):
+	mkdir -p $@
 
 clean:
 	mv $(bashrc) $(HOME)/.bashrc
-	rm $(addprefix $(HOME)/bin/,$(bin_files))
-	rmdir $(HOME)/bin
+	rm $(addprefix $(BINDIR)/,$(bin_files))
+	rmdir $(BINDIR)
+
+.PHONY: test
+test: install
+	bash test/color.sh
